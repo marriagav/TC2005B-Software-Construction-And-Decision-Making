@@ -23,16 +23,7 @@ public class WaveMove : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D col){
         if (col.tag == "Wall"){
-            int score=cs.getScore();
-            if (score>=10){
-                randomNumber = Random.Range(5, score);
-            }
-            else if (score>=5){
-                randomNumber = Random.Range(3, score);
-            }
-            else{
-                randomNumber = Random.Range(1, score);
-            }
+            calculateRandomNumber();
             if (move.y>0){
                 move=new Vector3 (0,randomNumber,0);
                 move=-move;
@@ -52,6 +43,19 @@ public class WaveMove : MonoBehaviour
                 return;
             }
         }
+    }
+
+    void calculateRandomNumber(){
+        int score=cs.getScore();
+            if (score>=10){
+                randomNumber = Random.Range(5, score);
+            }
+            else if (score>=5){
+                randomNumber = Random.Range(3, score);
+            }
+            else{
+                randomNumber = Random.Range(1, score);
+            }
     }
 
 
