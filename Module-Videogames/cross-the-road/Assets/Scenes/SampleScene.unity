@@ -156,10 +156,10 @@ RectTransform:
   m_Father: {fileID: 2036056521}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12, y: 29}
-  m_SizeDelta: {x: 208.9258, y: 31.896088}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 24, y: -65}
+  m_SizeDelta: {x: 208.92578, y: 31.896088}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &53232968
 MonoBehaviour:
@@ -207,7 +207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: '
+  m_Text: 'SCORE: '
 --- !u!222 &53232970
 CanvasRenderer:
   m_ObjectHideFlags: 0

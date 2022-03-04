@@ -28,6 +28,6 @@ public class ScoreDisplay : MonoBehaviour
     {
         ///  Modifies the text object to display the score 
         score=cs.getScore();
-        txt.text = "Score: " + score.ToString();
+        txt.text = "SCORE: " + score.ToString();
     }
 }
