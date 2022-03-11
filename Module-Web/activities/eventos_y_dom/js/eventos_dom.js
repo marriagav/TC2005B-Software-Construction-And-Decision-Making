@@ -1,9 +1,16 @@
+/*
+Miguel Arriaga Velasco
+10/03/2022
+Actividad: Dom y eventos
+*/
+
 //Global variables
 var colorDb;
 var rowIndx = 2;
 var colIndx = 2;
 
 function main() {
+  //Is called on program startup
   colorDb = new Color([]);
   addInputs();
 
@@ -22,12 +29,14 @@ function main() {
 }
 
 function printMousePos(event) {
+  //Prints the mouse position on the screen
   let mouseText = document.getElementById("mousePosition");
   mouseText.innerHTML =
     "Posición del mouse:" + " X: " + event.clientX + " Y: " + event.clientY;
 }
 
 function getFormvalue(event) {
+  //Gets value from from1
   event.preventDefault();
   let form = document.getElementById("form1");
   let fullName = getName();
@@ -35,12 +44,14 @@ function getFormvalue(event) {
 }
 
 function getName() {
+  //Gets full name from document
   let firstName = document.getElementsByName("fname")[0].value;
   let lastName = document.getElementsByName("lname")[0].value;
   return firstName + " " + lastName;
 }
 
 function writeName(text, insertInto) {
+  //Creates a tag with the full name as its content
   let tag = document.createElement("p");
   let content = document.createTextNode(text);
   tag.appendChild(content);
@@ -48,6 +59,7 @@ function writeName(text, insertInto) {
 }
 
 function insertRow(event) {
+  //Inserts a row in the table
   event.preventDefault();
   let table = document.getElementById("sampleTable");
   row = table.insertRow(rowIndx);
@@ -63,6 +75,7 @@ function insertRow(event) {
 }
 
 function insertColumn(event) {
+  //Inserts column in the table
   event.preventDefault();
   let table = document.getElementById("sampleTable");
   for (let i = 0; i < rowIndx; i++) {
@@ -78,6 +91,7 @@ function insertColumn(event) {
 }
 
 function addInputs() {
+  //Adds input for the user to select cell to be changed in table
   let container = document.getElementById("inputContainer");
   let table = document.getElementById("myTable");
   let rows = table.rows;
@@ -93,6 +107,7 @@ function addInputs() {
 }
 
 function rowMiniContainer(rows) {
+  //Adds the row input
   let lengthRows = rows.length;
   let inputRow = document.createElement("input");
   inputRow.type = "number";
@@ -111,6 +126,7 @@ function rowMiniContainer(rows) {
 }
 
 function colMiniContainer(rows) {
+  //Adds the column input
   let columns = rows[0];
   let lengthCols = columns.children.length;
   let inputCol = document.createElement("input");
@@ -130,6 +146,7 @@ function colMiniContainer(rows) {
 }
 
 function contentMiniContainer() {
+  //Adds the new value input
   let textInput = document.createElement("input");
   textInput.type = "text";
   textInput.id = "newContent";
@@ -145,6 +162,7 @@ function contentMiniContainer() {
 }
 
 function changeContent(event) {
+  //Changes the content of the cell of the table
   event.preventDefault();
   let table = document.getElementById("myTable");
   let indxRow = document.getElementById("inputRow").value;
@@ -160,6 +178,7 @@ function changeContent(event) {
 }
 
 function removeColor(event) {
+  //Removes color from the list
   event.preventDefault();
   let select = document.getElementById("colorSelect");
   let color = select.value;
@@ -168,6 +187,7 @@ function removeColor(event) {
 }
 
 function addColor(event) {
+  //Adds a random color to the list
   event.preventDefault();
 
   let select = document.getElementById("colorSelect");
@@ -186,7 +206,9 @@ function addColor(event) {
 }
 
 class Color {
+  //Color class to maintain an array of the colors in the list
   constructor(arrayOfColors) {
+    //Constructor from initial list
     this.colors = arrayOfColors;
     let select = document.getElementById("colorSelect");
     for (let i = 0; i < select.children.length; i++) {
@@ -199,10 +221,12 @@ class Color {
   }
 
   addColor(color) {
+    //Adds color to the array
     this.colors.push(color);
   }
 
   removeColor(color) {
+    //Removes color from the array
     for (let i = 0; i < this.colors.length; i++) {
       if (this.colors[i] == color) {
         this.colors.splice(i, 1);
@@ -212,6 +236,7 @@ class Color {
 }
 
 function changeImg(event) {
+  //Changes image
   event.preventDefault();
   let img = document.getElementById("myImg");
   let height = generateRandomNumber(300, 600);
@@ -220,5 +245,6 @@ function changeImg(event) {
 }
 
 function generateRandomNumber(min, max) {
+  //Generates a random int between min and max
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
