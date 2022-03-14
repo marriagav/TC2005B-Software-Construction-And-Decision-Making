@@ -14,9 +14,9 @@ function main() {
   colorDb = new Color([]);
   addInputs();
 
-  onmousemove = function (event) {
+  document.addEventListener("mousemove", function (event) {
     printMousePos(event);
-  };
+  });
 
   let img = document.getElementById("myImg");
   img.addEventListener(
