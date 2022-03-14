@@ -6,8 +6,6 @@ Actividad: Dom y eventos
 
 //Global variables
 var colorDb;
-var rowIndx = 2;
-var colIndx = 2;
 
 function main() {
   //Is called on program startup
@@ -62,6 +60,8 @@ function insertRow(event) {
   //Inserts a row in the table
   event.preventDefault();
   let table = document.getElementById("sampleTable");
+  let rowIndx = table.rows.length;
+  let colIndx = table.rows[0].cells.length;
   row = table.insertRow(rowIndx);
   for (let i = 0; i < colIndx; i++) {
     let column = document.createElement("td");
@@ -71,13 +71,14 @@ function insertRow(event) {
     column.appendChild(content);
     row.appendChild(column);
   }
-  rowIndx++;
 }
 
 function insertColumn(event) {
   //Inserts column in the table
   event.preventDefault();
   let table = document.getElementById("sampleTable");
+  let rowIndx = table.rows.length;
+  let colIndx = table.rows[0].cells.length;
   for (let i = 0; i < rowIndx; i++) {
     let row = table.rows[i];
     let column = document.createElement("td");
@@ -87,7 +88,6 @@ function insertColumn(event) {
     column.appendChild(content);
     row.appendChild(column);
   }
-  colIndx++;
 }
 
 function addInputs() {
